@@ -61,6 +61,6 @@ def get_top_n_recommendations(algo, user_id, trainset, n=10):
 # Example user ID
 user_id = input("Enter User ID: ")
 
-# Get recommended items
+# Get recommended books
 recommended_items = get_top_n_recommendations(algo, user_id, trainset)
-print(f"Recommended Items for User {user_id}: {recommended_items}")
+print(f"Recommended books for User {user_id}: {recommended_items}")
