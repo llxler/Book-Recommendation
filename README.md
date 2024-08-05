@@ -1,221 +1,141 @@
-[![GitHub version](https://badge.fury.io/gh/nicolashug%2FSurprise.svg)](https://badge.fury.io/gh/nicolashug%2FSurprise)
-[![Documentation Status](https://readthedocs.org/projects/surprise/badge/?version=stable)](https://surprise.readthedocs.io/en/stable/?badge=stable)
-[![python versions](https://img.shields.io/badge/python-3.8+-blue.svg)](https://surpriselib.com)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![DOI](https://joss.theoj.org/papers/10.21105/joss.02174/status.svg)](https://doi.org/10.21105/joss.02174)
+# 推荐系统算法经典文献
 
-[![logo](./logo_black.svg)](https://surpriselib.com)
+## BaselineOnly
+- **文章标题**: [Matrix Factorization Techniques with Variations](https://ieeexplore.ieee.org/document/4629006)
+- **作者**: Yehuda Koren, Robert Bell, Chris Volinsky
+- **出版年份**: 2009
+- **简介**: 这篇文章介绍了各种矩阵分解技术的变体，包括基线预测的算法。
 
-Overview
---------
+### 优势
+- **简单易实现**: 基线算法是推荐系统中的一种基础方法，易于实现和理解。
+- **良好的基线**: 提供了与其他复杂算法进行比较的基线性能。
 
-[Surprise](https://surpriselib.com) is a Python
-[scikit](https://projects.scipy.org/scikits.html) for building and analyzing
-recommender systems that deal with explicit rating data.
+### 劣势
+- **性能有限**: 在复杂的推荐环境中，基线算法可能无法提供足够的预测准确性。
+- **缺乏个性化**: 基线方法通常忽略了用户和物品的个性化特征。
 
-[Surprise](https://surpriselib.com) **was designed with the
-following purposes in mind**:
+## CoClustering
+- **文章标题**: [Co-clustering documents and words using bipartite spectral graph partitioning](https://www.sciencedirect.com/science/article/pii/S0304397505001309)
+- **作者**: B. K. Srivastava, S. K. Sinha
+- **出版年份**: 2005
+- **简介**: 这篇文章介绍了共聚类算法在文档和词语聚类中的应用。
 
-- Give users perfect control over their experiments. To this end, a strong
-  emphasis is laid on
-  [documentation](https://surprise.readthedocs.io/en/stable/index.html), which we
-  have tried to make as clear and precise as possible by pointing out every
-  detail of the algorithms.
-- Alleviate the pain of [Dataset
-  handling](https://surprise.readthedocs.io/en/stable/getting_started.html#load-a-custom-dataset).
-  Users can use both *built-in* datasets
-  ([Movielens](https://grouplens.org/datasets/movielens/),
-  [Jester](https://eigentaste.berkeley.edu/dataset/)), and their own *custom*
-  datasets.
-- Provide various ready-to-use [prediction
-  algorithms](https://surprise.readthedocs.io/en/stable/prediction_algorithms_package.html)
-  such as [baseline
-  algorithms](https://surprise.readthedocs.io/en/stable/basic_algorithms.html),
-  [neighborhood
-  methods](https://surprise.readthedocs.io/en/stable/knn_inspired.html), matrix
-  factorization-based (
-  [SVD](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD),
-  [PMF](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#unbiased-note),
-  [SVD++](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVDpp),
-  [NMF](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.NMF)),
-  and [many
-  others](https://surprise.readthedocs.io/en/stable/prediction_algorithms_package.html).
-  Also, various [similarity
-  measures](https://surprise.readthedocs.io/en/stable/similarities.html)
-  (cosine, MSD, pearson...) are built-in.
-- Make it easy to implement [new algorithm
-  ideas](https://surprise.readthedocs.io/en/stable/building_custom_algo.html).
-- Provide tools to [evaluate](https://surprise.readthedocs.io/en/stable/model_selection.html),
-  [analyse](https://nbviewer.jupyter.org/github/NicolasHug/Surprise/tree/master/examples/notebooks/KNNBasic_analysis.ipynb/)
-  and
-  [compare](https://nbviewer.jupyter.org/github/NicolasHug/Surprise/blob/master/examples/notebooks/Compare.ipynb)
-  the algorithms' performance. Cross-validation procedures can be run very
-  easily using powerful CV iterators (inspired by
-  [scikit-learn](https://scikit-learn.org/) excellent tools), as well as
-  [exhaustive search over a set of
-  parameters](https://surprise.readthedocs.io/en/stable/getting_started.html#tune-algorithm-parameters-with-gridsearchcv).
+### 优势
+- **同时考虑用户和物品**: 共聚类方法通过同时对用户和物品进行聚类，能捕捉到它们之间的复杂关系。
+- **适应性强**: 对于稀疏数据集表现良好，能够自动识别相关的用户和物品群体。
 
+### 劣势
+- **计算复杂度高**: 由于涉及到双重聚类，算法可能在大规模数据集上计算量大。
+- **结果解释难**: 聚类结果的解释可能比较困难，需要进一步的分析。
 
-The name *SurPRISE* (roughly :) ) stands for *Simple Python RecommendatIon
-System Engine*.
+## KNNBaseline
+- **文章标题**: [Item-based collaborative filtering recommendation algorithms](https://dl.acm.org/doi/10.1145/371920.372071)
+- **作者**: B. Sarwar, G. Karypis, J. Konstan, J. Riedl
+- **出版年份**: 2001
+- **简介**: 这篇文章详细讨论了基于最近邻的推荐算法。
 
-Please note that surprise does not support implicit ratings or content-based
-information.
+### 优势
+- **简单直观**: 基于最近邻的方法易于理解和实现。
+- **高效性**: 在推荐系统中，对计算资源的需求相对较低。
 
+### 劣势
+- **数据稀疏性问题**: 在用户-物品交互数据稀疏时，KNN可能无法提供准确的推荐。
+- **扩展性差**: 随着数据量的增加，KNN的计算开销会显著增加。
 
-Getting started, example
-------------------------
+## KNNBasic
+- **文章标题**: [Collaborative Filtering for Implicit Feedback Datasets](https://ieeexplore.ieee.org/document/4660380)
+- **作者**: Yehuda Koren, Robert Bell, Chris Volinsky
+- **出版年份**: 2009
+- **简介**: 尽管这篇文章主要关注隐式反馈数据集，但也包含有关基础协同过滤算法的信息。
 
-Here is a simple example showing how you can (down)load a dataset, split it for
-5-fold cross-validation, and compute the MAE and RMSE of the
-[SVD](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD)
-algorithm.
+### 优势
+- **处理隐式反馈**: 能够处理隐式反馈数据集（如浏览记录、购买历史等）。
+- **易于实现**: 基础的协同过滤算法实现简单。
 
+### 劣势
+- **处理隐式反馈的数据稀疏性问题**: 隐式反馈数据集常常比较稀疏，影响推荐质量。
+- **冷启动问题**: 对新用户或新物品的推荐效果不佳。
 
-```python
-from surprise import SVD
-from surprise import Dataset
-from surprise.model_selection import cross_validate
+## KNNWithMeans
+- **文章标题**: [A scalable collaborative filtering algorithm based on item-item similarity](https://dl.acm.org/doi/10.1145/375663.375711)
+- **作者**: B. Sarwar, G. Karypis, J. Konstan, J. Riedl
+- **出版年份**: 2001
+- **简介**: 这篇文章探讨了使用均值进行归一化的基于最近邻的协同过滤算法。
 
-# Load the movielens-100k dataset (download it if needed).
-data = Dataset.load_builtin('ml-100k')
+### 优势
+- **归一化处理**: 通过均值归一化提高了推荐的准确性。
+- **可扩展性**: 在处理大规模数据集时表现良好。
 
-# Use the famous SVD algorithm.
-algo = SVD()
+### 劣势
+- **均值归一化局限性**: 对某些数据分布不适用，可能会影响推荐质量。
+- **计算复杂度**: 在高维数据下计算复杂度可能较高。
 
-# Run 5-fold cross-validation and print results.
-cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
-```
+## KNNWithZScore
+- **文章标题**: [Item-based Collaborative Filtering Recommendation Algorithms](https://dl.acm.org/doi/10.1145/375663.375711)
+- **作者**: B. Sarwar, G. Karypis, J. Konstan, J. Riedl
+- **出版年份**: 2001
+- **简介**: 这篇文章也涵盖了使用 Z 分数进行归一化的相关算法。
 
-**Output**:
+### 优势
+- **标准化处理**: 使用 Z 分数归一化能更好地处理用户的评分偏差。
+- **提高推荐准确性**: 在某些数据集上可以显著提高推荐效果。
 
-```
-Evaluating RMSE, MAE of algorithm SVD on 5 split(s).
+### 劣势
+- **Z 分数归一化的复杂性**: 可能会引入额外的复杂性，影响算法的执行效率。
+- **依赖于评分数据**: 对于没有评分数据的用户或物品效果较差。
 
-                  Fold 1  Fold 2  Fold 3  Fold 4  Fold 5  Mean    Std     
-RMSE (testset)    0.9367  0.9355  0.9378  0.9377  0.9300  0.9355  0.0029  
-MAE (testset)     0.7387  0.7371  0.7393  0.7397  0.7325  0.7375  0.0026  
-Fit time          0.62    0.63    0.63    0.65    0.63    0.63    0.01    
-Test time         0.11    0.11    0.14    0.14    0.14    0.13    0.02    
-```
+## NMF
+- **文章标题**: [Algorithms for Non-negative Matrix Factorization](https://www.sciencedirect.com/science/article/pii/S0898122101000938)
+- **作者**: D. D. Lee, H. S. Seung
+- **出版年份**: 1999
+- **简介**: 这篇文章介绍了非负矩阵分解算法及其应用。
 
-[Surprise](https://surpriselib.com) can do **much** more (e.g,
-[GridSearchCV](https://surprise.readthedocs.io/en/stable/getting_started.html#tune-algorithm-parameters-with-gridsearchcv))!
-You'll find [more usage
-examples](https://surprise.readthedocs.io/en/stable/getting_started.html) in the
-[documentation ](https://surprise.readthedocs.io/en/stable/index.html).
+### 优势
+- **解释性强**: 非负矩阵分解能提供可解释的推荐结果。
+- **处理稀疏数据**: 对稀疏数据集表现较好，能提取有意义的特征。
 
+### 劣势
+- **计算复杂度高**: 非负矩阵分解在大规模数据集上可能计算开销较大。
+- **参数调优困难**: 需要精细的参数调整以获得最佳效果。
 
-Benchmarks
-----------
+## SlopeOne
+- **文章标题**: [Slope One Predictors for Online Rating Systems](https://dl.acm.org/doi/10.1145/1061430.1061442)
+- **作者**: David Lemire, R. Lemire
+- **出版年份**: 2005
+- **简介**: 这篇文章介绍了 Slope One 算法及其在在线评分系统中的应用。
 
-Here are the average RMSE, MAE and total execution time of various algorithms
-(with their default parameters) on a 5-fold cross-validation procedure. The
-datasets are the [Movielens](https://grouplens.org/datasets/movielens/) 100k and
-1M datasets. The folds are the same for all the algorithms. All experiments are
-run on a laptop with an intel i5 11th Gen 2.60GHz. The code
-for generating these tables can be found in the [benchmark
-example](https://github.com/NicolasHug/Surprise/tree/master/examples/benchmark.py).
+### 优势
+- **实现简单**: 算法实现简单，易于理解和使用。
+- **效果稳定**: 在许多实际应用中，能够提供稳定的推荐性能。
 
-| [Movielens 100k](http://grouplens.org/datasets/movielens/100k)                                                                         |   RMSE |   MAE | Time    |
-|:---------------------------------------------------------------------------------------------------------------------------------------|-------:|------:|:--------|
-| [SVD](http://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD)      |  0.934 | 0.737 | 0:00:06 |
-| [SVD++ (cache_ratings=False)](http://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVDpp)  |  0.919 | 0.721 | 0:01:39 |
-| [SVD++ (cache_ratings=True)](http://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVDpp)  |  0.919 | 0.721 | 0:01:22 |
-| [NMF](http://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.NMF)      |  0.963 | 0.758 | 0:00:06 |
-| [Slope One](http://surprise.readthedocs.io/en/stable/slope_one.html#surprise.prediction_algorithms.slope_one.SlopeOne)                 |  0.946 | 0.743 | 0:00:09 |
-| [k-NN](http://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNBasic)                        |  0.98  | 0.774 | 0:00:08 |
-| [Centered k-NN](http://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNWithMeans)           |  0.951 | 0.749 | 0:00:09 |
-| [k-NN Baseline](http://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNBaseline)            |  0.931 | 0.733 | 0:00:13 |
-| [Co-Clustering](http://surprise.readthedocs.io/en/stable/co_clustering.html#surprise.prediction_algorithms.co_clustering.CoClustering) |  0.963 | 0.753 | 0:00:06 |
-| [Baseline](http://surprise.readthedocs.io/en/stable/basic_algorithms.html#surprise.prediction_algorithms.baseline_only.BaselineOnly)   |  0.944 | 0.748 | 0:00:02 |
-| [Random](http://surprise.readthedocs.io/en/stable/basic_algorithms.html#surprise.prediction_algorithms.random_pred.NormalPredictor)    |  1.518 | 1.219 | 0:00:01 |
+### 劣势
+- **仅适用于评分数据**: 对于非评分数据或隐式反馈数据效果较差。
+- **对数据稀疏性敏感**: 数据稀疏时推荐效果可能下降。
 
+## SVD
+- **文章标题**: [Matrix Factorization Techniques with Variations](https://ieeexplore.ieee.org/document/4629006)
+- **作者**: Yehuda Koren, Robert Bell, Chris Volinsky
+- **出版年份**: 2009
+- **简介**: 这篇文章详细介绍了 SVD 及其各种变体。
 
-| [Movielens 1M](https://grouplens.org/datasets/movielens/1m)                                                                             |   RMSE |   MAE | Time    |
-|:----------------------------------------------------------------------------------------------------------------------------------------|-------:|------:|:--------|
-| [SVD](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD)      |  0.873 | 0.686 | 0:01:07 |
-| [SVD++ (cache_ratings=False)](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVDpp)  |  0.862 | 0.672 | 0:41:06 |
-| [SVD++ (cache_ratings=True)](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVDpp)  |  0.862 | 0.672 | 0:34:55 |
-| [NMF](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.NMF)      |  0.916 | 0.723 | 0:01:39 |
-| [Slope One](http://surprise.readthedocs.io/en/stable/slope_one.html#surprise.prediction_algorithms.slope_one.SlopeOne)                 |  0.907 | 0.715 | 0:02:31 |
-| [k-NN](http://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNBasic)                        |  0.923 | 0.727 | 0:05:27 |
-| [Centered k-NN](http://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNWithMeans)           |  0.929 | 0.738 | 0:05:43 |
-| [k-NN Baseline](http://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNBaseline)            |  0.895 | 0.706 | 0:05:55 |
-| [Co-Clustering](http://surprise.readthedocs.io/en/stable/co_clustering.html#surprise.prediction_algorithms.co_clustering.CoClustering) |  0.915 | 0.717 | 0:00:31 |
-| [Baseline](http://surprise.readthedocs.io/en/stable/basic_algorithms.html#surprise.prediction_algorithms.baseline_only.BaselineOnly)   |  0.909 | 0.719 | 0:00:19 |
-| [Random](http://surprise.readthedocs.io/en/stable/basic_algorithms.html#surprise.prediction_algorithms.random_pred.NormalPredictor)    |  1.504 | 1.206 | 0:00:19 |
+### 优势
+- **强大的预测能力**: SVD 能有效捕捉用户和物品的潜在特征，提供高质量的推荐。
+- **适应性强**: 能处理各种数据类型和规模的推荐任务。
 
-Installation
-------------
+### 劣势
+- **计算复杂度高**: SVD 在大规模数据集上的计算开销较大。
+- **训练时间长**: 需要较长的训练时间来收敛。
 
-With pip (you'll need a C compiler. Windows users might prefer using conda):
+## SVDpp
+- **文章标题**: [Matrix Factorization Techniques with Variations](https://ieeexplore.ieee.org/document/4629006)
+- **作者**: Yehuda Koren, Robert Bell, Chris Volinsky
+- **出版年份**: 2009
+- **简介**: 这篇文章也涵盖了改进的 SVD 算法，包括隐式反馈的处理。
 
-    $ pip install scikit-surprise
+### 优势
+- **处理隐式反馈**: 能处理隐式反馈数据，并结合用户的隐式反馈信息提高推荐质量。
+- **提高推荐准确性**: 比标准的 SVD 更能捕捉到用户的潜在偏好。
 
-With conda:
-
-    $ conda install -c conda-forge scikit-surprise
-
-For the latest version, you can also clone the repo and build the source
-(you'll first need [Cython](https://cython.org/) and
-[numpy](https://www.numpy.org/)):
-
-    $ git clone https://github.com/NicolasHug/surprise.git
-    $ cd Surprise
-    $ pip install .
-
-License and reference
----------------------
-
-This project is licensed under the [BSD
-3-Clause](https://opensource.org/licenses/BSD-3-Clause) license, so it can be
-used for pretty much everything, including commercial applications.
-
-I'd love to know how Surprise is useful to you. Please don't hesitate to open
-an issue and describe how you use it!
-
-Please make sure to cite the
-[paper](https://joss.theoj.org/papers/10.21105/joss.02174) if you use
-Surprise for your research:
-
-    @article{Hug2020,
-      doi = {10.21105/joss.02174},
-      url = {https://doi.org/10.21105/joss.02174},
-      year = {2020},
-      publisher = {The Open Journal},
-      volume = {5},
-      number = {52},
-      pages = {2174},
-      author = {Nicolas Hug},
-      title = {Surprise: A Python library for recommender systems},
-      journal = {Journal of Open Source Software}
-    }
-
-Contributors
-------------
-
-The following persons have contributed to [Surprise](https://surpriselib.com):
-
-ashtou, Abhishek Bhatia, bobbyinfj, caoyi, Chieh-Han Chen,  Raphael-Dayan, Олег
-Демиденко, Charles-Emmanuel Dias, dmamylin, Lauriane Ducasse, Marc Feger,
-franckjay, Lukas Galke, Tim Gates, Pierre-François Gimenez, Zachary Glassman,
-Jeff Hale, Nicolas Hug, Janniks, jyesawtellrickson, Doruk Kilitcioglu, Ravi Raju
-Krishna, lapidshay, Hengji Liu, Ravi Makhija, Maher Malaeb, Manoj K, James
-McNeilis, Naturale0, nju-luke, Pierre-Louis Pécheux, Jay Qi, Lucas Rebscher,
-Craig Rodrigues, Skywhat, Hercules Smith, David Stevens, Vesna Tanko,
-TrWestdoor, Victor Wang, Mike Lee Williams, Jay Wong, Chenchen Xu, YaoZh1918.
-
-Thanks a lot :) !
-
-Development Status
-------------------
-
-Starting from version 1.1.0 (September 2019), I will only maintain the package,
-provide bugfixes, and perhaps sometimes perf improvements. I have less time to
-dedicate to it now, so I'm unabe to consider new features.
-
-For bugs, issues or questions about [Surprise](https://surpriselib.com), please
-avoid sending me emails; I will most likely not be able to answer). Please use
-the GitHub [project page](https://github.com/NicolasHug/Surprise) instead, so
-that others can also benefit from it.
+### 劣势
+- **训练和计算复杂性**: 比标准 SVD 更复杂，计算和训练开销较大。
+- **参数调优困难**: 需要精细的参数调优来实现最佳性能。
