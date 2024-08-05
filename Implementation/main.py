@@ -59,7 +59,8 @@ def get_top_n_recommendations(algo, user_id, trainset, n=10):
     return [pred.iid for pred in top_n]
 
 # Example user ID
-user_id = input("Enter User ID: ")
+# user_id = input("Enter User ID: ")
+user_id = '1'
 
 # Get recommended books
 recommended_items = get_top_n_recommendations(algo, user_id, trainset)
