@@ -3,7 +3,6 @@
 ## BaselineOnly
 - **文章标题**: [Matrix Factorization Techniques with Variations](https://ieeexplore.ieee.org/document/4629006)
 - **作者**: Yehuda Koren, Robert Bell, Chris Volinsky
-- **出版年份**: 2009
 - **简介**: 这篇文章介绍了各种矩阵分解技术的变体，包括基线预测的算法。
 
 ### 优势
@@ -17,7 +16,6 @@
 ## CoClustering
 - **文章标题**: [Co-clustering documents and words using bipartite spectral graph partitioning](https://www.sciencedirect.com/science/article/pii/S0304397505001309)
 - **作者**: B. K. Srivastava, S. K. Sinha
-- **出版年份**: 2005
 - **简介**: 这篇文章介绍了共聚类算法在文档和词语聚类中的应用。
 
 ### 优势
@@ -31,7 +29,6 @@
 ## KNNBaseline
 - **文章标题**: [Item-based collaborative filtering recommendation algorithms](https://dl.acm.org/doi/10.1145/371920.372071)
 - **作者**: B. Sarwar, G. Karypis, J. Konstan, J. Riedl
-- **出版年份**: 2001
 - **简介**: 这篇文章详细讨论了基于最近邻的推荐算法。
 
 ### 优势
@@ -45,7 +42,6 @@
 ## KNNBasic
 - **文章标题**: [Collaborative Filtering for Implicit Feedback Datasets](https://ieeexplore.ieee.org/document/4660380)
 - **作者**: Yehuda Koren, Robert Bell, Chris Volinsky
-- **出版年份**: 2009
 - **简介**: 尽管这篇文章主要关注隐式反馈数据集，但也包含有关基础协同过滤算法的信息。
 
 ### 优势
@@ -59,7 +55,6 @@
 ## KNNWithMeans
 - **文章标题**: [A scalable collaborative filtering algorithm based on item-item similarity](https://dl.acm.org/doi/10.1145/375663.375711)
 - **作者**: B. Sarwar, G. Karypis, J. Konstan, J. Riedl
-- **出版年份**: 2001
 - **简介**: 这篇文章探讨了使用均值进行归一化的基于最近邻的协同过滤算法。
 
 ### 优势
@@ -73,7 +68,6 @@
 ## KNNWithZScore
 - **文章标题**: [Item-based Collaborative Filtering Recommendation Algorithms](https://dl.acm.org/doi/10.1145/375663.375711)
 - **作者**: B. Sarwar, G. Karypis, J. Konstan, J. Riedl
-- **出版年份**: 2001
 - **简介**: 这篇文章也涵盖了使用 Z 分数进行归一化的相关算法。
 
 ### 优势
@@ -87,7 +81,6 @@
 ## NMF
 - **文章标题**: [Algorithms for Non-negative Matrix Factorization](https://www.sciencedirect.com/science/article/pii/S0898122101000938)
 - **作者**: D. D. Lee, H. S. Seung
-- **出版年份**: 1999
 - **简介**: 这篇文章介绍了非负矩阵分解算法及其应用。
 
 ### 优势
@@ -101,7 +94,6 @@
 ## SlopeOne
 - **文章标题**: [Slope One Predictors for Online Rating Systems](https://dl.acm.org/doi/10.1145/1061430.1061442)
 - **作者**: David Lemire, R. Lemire
-- **出版年份**: 2005
 - **简介**: 这篇文章介绍了 Slope One 算法及其在在线评分系统中的应用。
 
 ### 优势
@@ -115,7 +107,6 @@
 ## SVD
 - **文章标题**: [Matrix Factorization Techniques with Variations](https://ieeexplore.ieee.org/document/4629006)
 - **作者**: Yehuda Koren, Robert Bell, Chris Volinsky
-- **出版年份**: 2009
 - **简介**: 这篇文章详细介绍了 SVD 及其各种变体。
 
 ### 优势
@@ -129,7 +120,6 @@
 ## SVDpp
 - **文章标题**: [Matrix Factorization Techniques with Variations](https://ieeexplore.ieee.org/document/4629006)
 - **作者**: Yehuda Koren, Robert Bell, Chris Volinsky
-- **出版年份**: 2009
 - **简介**: 这篇文章也涵盖了改进的 SVD 算法，包括隐式反馈的处理。
 
 ### 优势
